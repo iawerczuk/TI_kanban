@@ -86,9 +86,3 @@ node server.js
 ## Testowanie
 
 Plik `tests.http` lub `tests.rest` zawiera przykładowe wywołania endpointów API. Testy zostały przeprowadzone przy użyciu rozszerzenia **REST Client** dla Visual Studio Code.
-
-```
-
-Czy chciałbyś, abym przygotował teraz przykładową treść pliku `tests.rest` dla tych endpointów?
-
-```
