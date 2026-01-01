@@ -1,0 +1,83 @@
+@baseUrl = http://localhost:5052
+@json = application/json
+
+### GET tablicy początkowej
+GET {{baseUrl}}/api/board
+Accept: {{json}}
+
+### POST stworzenie pierwszego zadania w Todo 
+POST {{baseUrl}}/api/tasks
+Content-Type: {{json}}
+
+{
+  "title": "Pierwsze zadanie",
+  "col_id": 1
+}
+
+### POST stworzenie drugiego zadania w Todo
+POST {{baseUrl}}/api/tasks
+Content-Type: {{json}}
+
+{
+  "title": "Drugie zadanie",
+  "col_id": 1
+}
+
+### POST stworzenie zadania(błędny tytuł)
+POST {{baseUrl}}/api/tasks
+Content-Type: {{json}}
+
+{
+  "title": "",
+  "col_id": 1
+}
+
+### POST storzenie zadania(błędne col_id)
+POST {{baseUrl}}/api/tasks
+Content-Type: {{json}}
+
+{
+  "title": "Złe col_id",
+  "col_id": 999
+}
+
+### MOVE przeniesienie task id=1 Todo -> Doing (na koniec)
+POST {{baseUrl}}/api/tasks/1/move
+Content-Type: {{json}}
+
+{
+  "col_id": 2,
+  "ord": 9999
+}
+
+### MOVE przeniesienie task id=2 Todo -> Doing (na początek)
+POST {{baseUrl}}/api/tasks/1/move
+Content-Type: {{json}}
+
+{
+  "col_id": 3,
+  "ord": 1
+}
+
+### MOVE przeniesienie task(nie znaleziony)
+POST {{baseUrl}}/api/tasks/2/move
+POST {{baseUrl}}/api/tasks/999/move
+Content-Type: {{json}}
+
+{
+  "col_id": 2,
+  "ord": 1
+}
+
+### MOVE przeniesienie task do nieistniejącej kolumny
+POST {{baseUrl}}/api/tasks/1/move
+Content-Type: {{json}}
+
+{
+  "col_id": 999,
+  "ord": 1
+}
+
+### GET pobieranie tablicy po operacjach
+GET {{baseUrl}}/api/board
+Accept: {{json}}

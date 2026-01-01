@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kanban</title>
+  <link rel="stylesheet" href="/app.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">Kanban</div>
+    <div class="controls">
+      <button id="refreshBtn">Odśwież</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="status" class="muted"></div>
+    <div id="error" class="error hidden"></div>
+    <section id="board" class="board" aria-live="polite"></section>
+  </main>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
